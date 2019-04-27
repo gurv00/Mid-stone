@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class OpenGate : MonoBehaviour {
+
+    private SwitchActivision theSA;
+
+    // Use this for initialization
+    void Start () {
+        theSA = FindObjectOfType<SwitchActivision>();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		if(theSA.lights == true && gameObject.tag == "Gate")
+        {
+            gameObject.SetActive(false);
+        }
+        if (theSA.lights == false && gameObject.tag == "Gate")
+        {
+            gameObject.SetActive(true);
+        }
+
+        if (theSA.goldLight == true && gameObject.tag == "GoldGate")
+        {
+            gameObject.SetActive(false);
+        }
+        if (theSA.goldLight == false && gameObject.tag == "GoldGate")
+        {
+            gameObject.SetActive(true);
+        }
+
+        if (theSA.blueLight == true /*&& blue*/ && gameObject.tag == "BlueGate")
+        {
+            gameObject.SetActive(false);
+        }
+        if (theSA.blueLight == false && gameObject.tag == "BlueGate")
+        {
+            gameObject.SetActive(true);
+        }
+
+        if (theSA.greenLight == true && gameObject.tag == "GreenGate")
+        {
+            gameObject.SetActive(false);
+        }
+        if (theSA.greenLight == false && gameObject.tag == "GreenGate")
+        {
+            gameObject.SetActive(true);
+        }
+
+        if (theSA.redLight == true && gameObject.tag == "RedGate")
+        {
+            gameObject.SetActive(false);
+        }
+        if (theSA.redLight == false && gameObject.tag == "RedGate")
+        {
+            gameObject.SetActive(true);
+        }
+    }
+}
