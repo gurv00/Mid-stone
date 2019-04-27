@@ -1,0 +1,95 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SwitchActivision : MonoBehaviour {
+
+    private Animator anim;
+    public bool gold;
+    public bool blue;
+    public bool green;
+    public bool red;
+    public bool none;
+
+    public bool lights;
+    public bool goldLight;
+    public bool blueLight;
+    public bool greenLight;
+    public bool redLight;
+
+    // Use this for initialization
+    void Start () {
+        anim = GetComponent<Animator>();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Box")
+        {
+            anim.SetBool("Light", true);
+            lights = true;
+        }
+
+        if (other.gameObject.tag == "GoldBox" && gold)
+        {
+            anim.SetBool("Gold Light", true);
+            goldLight = true;
+        }
+
+        if (other.gameObject.tag == "BlueBox" && blue)
+        {
+            anim.SetBool("Blue Light", true);
+            blueLight = true;
+        }
+
+        if (other.gameObject.tag == "GreenBox" && green)
+        {
+            anim.SetBool("Green Light", true);
+            greenLight = true;
+        }
+
+        if (other.gameObject.tag == "RedBox" && red)
+        {
+            anim.SetBool("Red Light", true);
+            redLight = true;
+        }
+    }
+
+        private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Box")
+        {
+            anim.SetBool("Light", false);
+            lights = false;
+        }
+
+        if (other.gameObject.tag == "GoldBox" && gold)
+        {
+            anim.SetBool("Gold Light", false);
+            goldLight = false;
+        }
+
+        if (other.gameObject.tag == "BlueBox" && blue)
+        {
+            anim.SetBool("Blue Light", false);
+            blueLight = false;
+        }
+
+        if (other.gameObject.tag == "GreenBox" && green)
+        {
+            anim.SetBool("Green Light", false);
+            greenLight = false;
+        }
+
+        if (other.gameObject.tag == "RedBox" && red)
+        {
+            anim.SetBool("Red Light", false);
+            redLight = false;
+        }
+    }
+}
